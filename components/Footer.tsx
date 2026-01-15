@@ -36,12 +36,23 @@ export default function Footer() {
         </div>
 
         <div className="space-y-2">
-          <div className="font-semibold">Popular Destinations</div>
+          <div className="font-semibold">International Destinations:</div>
           <div className="grid gap-2 text-sm text-slate-300">
             <span>Thailand</span>
+            <span>Indonesia</span>
+            <span>Vietnam</span>
+            <span>Singapore</span>
+            <span>Malaysia</span>
+            <span>Dubai</span>
+          </div>
+        </div>
+
+        <div className="space-y-2">
+          <div className="font-semibold">Domestic Destinations:</div>
+          <div className="grid gap-2 text-sm text-slate-300">
+            <span>Kerala</span>
             <span>Manali</span>
             <span>Kedarnath</span>
-            <span>Dubai</span>
           </div>
         </div>
 

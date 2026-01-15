@@ -16,10 +16,9 @@ const thailandItinerary = [
     items: [
       "Arrive in Bangkok and transfer to Pattaya.",
       "Breakfast en route at Tiger Topia.",
-      "Check-in to your 3★/4★ hotel and relax.",
+      "Check-in to your 3-star/4-star hotel and relax.",
       "Lunch at Indian restaurant.",
       "Evening at leisure to explore local markets or beaches.",
-      "Dinner at Indian or local restaurant.",
       "Overnight stay in Pattaya.",
     ],
   },
@@ -29,10 +28,9 @@ const thailandItinerary = [
       "Breakfast at hotel (complete by 8:30 AM).",
       "Transfer to Coral Island by speedboat.",
       "Enjoy beach time and optional water activities (own expense).",
-      "Lunch not included — explore Thai food at your own cost.",
+      "Lunch included.",
       "Return to hotel and rest.",
       "Evening free for shopping or exploring Pattaya streets.",
-      "Dinner at Indian restaurant.",
       "Overnight stay in Pattaya.",
     ],
   },
@@ -40,11 +38,10 @@ const thailandItinerary = [
     day: "Day 3: Pattaya Local Sightseeing",
     items: [
       "Breakfast at hotel (complete by 8:30 AM).",
-      "Visit Gems Gallery and Floating Market.",
+      "Visit Gems Gallery and explore local areas.",
       "Lunch at Indian or local restaurant.",
       "Enjoy Crocodile Show and Tiger Zoo Park.",
       "Evening leisure time — explore Walking Street or beaches.",
-      "Dinner at local restaurant.",
       "Overnight stay in Pattaya.",
     ],
   },
@@ -52,10 +49,9 @@ const thailandItinerary = [
     day: "Day 4: Pattaya to Bangkok",
     items: [
       "Breakfast at hotel before 8:30 AM.",
-      "Transfer to Bangkok and check-in to 3★/4★ hotel.",
+      "Transfer to Bangkok and check-in to 3-star/4-star hotel.",
       "Lunch at nearby Indian or local restaurant.",
       "Day free for leisure or shopping at Bangkok malls.",
-      "Dinner at Indian restaurant.",
       "Overnight stay in Bangkok.",
     ],
   },
@@ -64,7 +60,7 @@ const thailandItinerary = [
     items: [
       "Breakfast at hotel.",
       "Explore local attractions including Buddha Temples and city tour.",
-      "Lunch not included — explore local food on your own.",
+      "Lunch at Indian restaurant.",
       "Free time for shopping (if schedule allows).",
       "Check-out and transfer to airport for departure.",
     ],
@@ -74,7 +70,7 @@ const thailandItinerary = [
 const thailandInclusions = [
   "Visa charges (if applicable).",
   "Daily breakfast at hotel.",
-  "Lunch and dinner as per itinerary.",
+  "Breakfast and lunch as per itinerary.",
   "500ml water bottle (2 per person per day).",
   "Private vehicle for transfers and sightseeing.",
   "English-speaking tour guide for group (minimum 40 pax).",
@@ -85,7 +81,6 @@ const thailandInclusions = [
 const thailandExclusions = [
   "International flight tickets.",
   "Water sports and other optional activities at Coral Island.",
-  "Meals not mentioned in inclusions.",
   "Alcoholic beverages and personal expenses.",
   "Any additional sightseeing or activities not mentioned.",
 ];
@@ -98,6 +93,21 @@ const thailandThingsToCarry = [
   "Personal medicines and first-aid kit.",
   "Camera, phone charger, and waterproof cover.",
 ];
+
+const thailandSpecialIncludes = [
+  "Alcazar Show at Pattaya.",
+  "King Power Mahanakhon at Bangkok.",
+  "Safari World Tour at Bangkok.",
+];
+
+const thailandNotes = [
+  "Hotel selection and room availability are subject to confirmation at the time of booking.",
+  "Itinerary order may change due to weather, traffic, or local operational conditions.",
+  "Passport must be valid for at least 6 months from the date of travel.",
+  "Optional activities and personal expenses are not included unless mentioned.",
+  "Final cost may vary based on travel dates, hotel category, and group size.",
+];
+
 
 export default async function PackageDetailsPage({ params }: Props) {
   const { slug } = await params;
@@ -275,8 +285,9 @@ export default async function PackageDetailsPage({ params }: Props) {
                   <div className="mt-1 text-2xl font-extrabold text-[color:var(--brand-ink)]">
                     ₹16,999/- <span className="text-sm font-semibold text-slate-500">per person</span>
                   </div>
-                  <div className="mt-1 text-sm text-slate-500">
-                    MRP ₹20,999/- • Save ₹4,000
+                  <div className="mt-1 text-sm text-slate-500">Standard Package</div>
+                  <div className="mt-3 text-sm font-semibold text-[color:var(--brand-ink)]">
+                    Special Package: ₹10,000/- Extra
                   </div>
                 </div>
                 <div className="text-sm text-slate-600">
@@ -284,9 +295,34 @@ export default async function PackageDetailsPage({ params }: Props) {
                   selection.
                 </div>
               </div>
+              <div className="mt-5">
+                <div className="text-sm font-semibold text-[color:var(--brand-ink)]">
+                  Special Package Includes
+                </div>
+                <ul className="mt-3 space-y-2 text-sm text-slate-700">
+                  {thailandSpecialIncludes.map((i) => (
+                    <li key={i} className="flex items-start gap-2">
+                      <span className="mt-1 h-2 w-2 rounded-full bg-[color:var(--brand-leaf)]" />
+                      <span>{i}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
               <div className="mt-4 text-sm font-semibold text-[color:var(--brand-ocean)]">
                 End of Tour — Friends Holiday Packages
               </div>
+            </div>
+
+            <div className="mt-6 rounded-2xl border border-white/70 bg-white/90 p-6 text-sm text-slate-700 shadow-sm">
+              <div className="text-sm font-semibold text-[color:var(--brand-ink)]">Notes</div>
+              <ul className="mt-4 space-y-2">
+                {thailandNotes.map((i) => (
+                  <li key={i} className="flex items-start gap-2">
+                    <span className="mt-1 h-2 w-2 rounded-full bg-[color:var(--brand-sunset)]" />
+                    <span>{i}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         )}
