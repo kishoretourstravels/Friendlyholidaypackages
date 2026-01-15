@@ -241,7 +241,22 @@ export default async function PackageDetailsPage({ params }: Props) {
         {pkg.slug === "thailand" && (
           <div className="mx-auto max-w-6xl px-4 pb-16">
             <div className="grid gap-6 md:grid-cols-3">
-              <div className="rounded-2xl border border-white/70 bg-white/90 p-6 shadow-sm">
+              <div className="relative overflow-hidden rounded-2xl border border-white/70 bg-white/90 p-6 shadow-sm">
+                <div className="pointer-events-none absolute inset-0 flex items-center justify-center opacity-15">
+                  <svg
+                    aria-hidden="true"
+                    viewBox="0 0 120 120"
+                    className="h-72 w-72 text-[color:var(--brand-leaf)] sm:h-80 sm:w-80"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="10"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <circle cx="60" cy="60" r="42" />
+                    <path d="M30 65l20 20 40-50" />
+                  </svg>
+                </div>
                 <h3 className="text-lg font-bold text-[color:var(--brand-ink)]">Package Inclusions</h3>
                 <ul className="mt-4 space-y-2 text-sm text-slate-700">
                   {thailandInclusions.map((i) => (
@@ -253,7 +268,21 @@ export default async function PackageDetailsPage({ params }: Props) {
                 </ul>
               </div>
 
-              <div className="rounded-2xl border border-white/70 bg-white/90 p-6 shadow-sm">
+              <div className="relative overflow-hidden rounded-2xl border border-white/70 bg-white/90 p-6 shadow-sm">
+                <div className="pointer-events-none absolute inset-0 flex items-center justify-center opacity-15">
+                  <svg
+                    aria-hidden="true"
+                    viewBox="0 0 120 120"
+                    className="h-72 w-72 text-[color:var(--brand-sunset)] sm:h-80 sm:w-80"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="10"
+                    strokeLinecap="round"
+                  >
+                    <circle cx="60" cy="60" r="42" />
+                    <path d="M30 30l60 60M90 30l-60 60" />
+                  </svg>
+                </div>
                 <h3 className="text-lg font-bold text-[color:var(--brand-ink)]">Package Exclusions</h3>
                 <ul className="mt-4 space-y-2 text-sm text-slate-700">
                   {thailandExclusions.map((i) => (
@@ -265,7 +294,23 @@ export default async function PackageDetailsPage({ params }: Props) {
                 </ul>
               </div>
 
-              <div className="rounded-2xl border border-white/70 bg-white/90 p-6 shadow-sm">
+              <div className="relative overflow-hidden rounded-2xl border border-white/70 bg-white/90 p-6 shadow-sm">
+                <div className="pointer-events-none absolute inset-0 flex items-center justify-center opacity-15">
+                  <svg
+                    aria-hidden="true"
+                    viewBox="0 0 120 120"
+                    className="h-72 w-72 text-[color:var(--brand-ocean)] sm:h-80 sm:w-80"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="8"
+                    strokeLinejoin="round"
+                  >
+                    <circle cx="60" cy="60" r="50" />
+                    <path d="M60 10L103.3 85H16.7z" />
+                    <line x1="60" y1="40" x2="60" y2="70" strokeLinecap="round" />
+                    <circle cx="60" cy="82" r="4" fill="currentColor" stroke="none" />
+                  </svg>
+                </div>
                 <h3 className="text-lg font-bold text-[color:var(--brand-ink)]">Things To Carry</h3>
                 <ul className="mt-4 space-y-2 text-sm text-slate-700">
                   {thailandThingsToCarry.map((i) => (
