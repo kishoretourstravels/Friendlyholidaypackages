@@ -302,13 +302,13 @@ export default async function PackageDetailsPage({ params }: Props) {
                     className="h-72 w-72 text-[color:var(--brand-ocean)] sm:h-80 sm:w-80"
                     fill="none"
                     stroke="currentColor"
-                    strokeWidth="8"
+                    strokeWidth="10"
                     strokeLinejoin="round"
                   >
-                    <circle cx="60" cy="60" r="50" />
-                    <path d="M60 10L103.3 85H16.7z" />
-                    <line x1="60" y1="40" x2="60" y2="70" strokeLinecap="round" />
-                    <circle cx="60" cy="82" r="4" fill="currentColor" stroke="none" />
+                    <circle cx="60" cy="60" r="42" />
+                    <path d="M60 18L96.4 81H23.6z" />
+                    <line x1="60" y1="44" x2="60" y2="70" strokeLinecap="round" />
+                    <circle cx="60" cy="78" r="4" fill="currentColor" stroke="none" />
                   </svg>
                 </div>
                 <h3 className="text-lg font-bold text-[color:var(--brand-ink)]">Things To Carry</h3>
