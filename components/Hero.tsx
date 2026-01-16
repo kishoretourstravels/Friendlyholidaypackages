@@ -188,21 +188,13 @@ export default function Hero() {
                     <div className="absolute right-4 -top-2 h-20 w-32 rotate-[12deg] rounded-full bg-[color:var(--brand-sunset)]/50 blur-2xl" />
                     <div className="absolute bottom-4 left-6 h-20 w-36 rotate-[10deg] rounded-full bg-[color:var(--brand-leaf)]/40 blur-2xl" />
                   </div>
-                  <div className="relative">
-                    <div className="mx-auto inline-flex items-center gap-2 rounded-full bg-white/85 px-4 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-[color:var(--brand-sunset)]">
-                      Cashback unlocked
+                  <div className="relative text-center">
+                    <div className="text-sm font-semibold uppercase tracking-[0.2em] text-[color:var(--brand-sunset)]">
+                      Congratulations
                     </div>
-                    <div className="mt-3 text-xl font-semibold text-transparent bg-gradient-to-r from-orange-500 via-amber-500 to-emerald-500 bg-clip-text">
-                      Yeah.! You got a Cashback!
-                    </div>
-                    <div className="mt-4 text-6xl font-extrabold text-[color:var(--brand-ink)] drop-shadow-md">
-                      ₹1500
-                    </div>
-                    <div className="mt-2 text-xs font-semibold text-slate-600">
-                      Use it on your Thailand booking today
-                    </div>
-                    <div className="mt-4 text-xs font-semibold text-[color:var(--brand-sunset)]">
-                      Expires in 24 hours
+                    <div className="mt-2 text-2xl font-semibold text-[color:var(--brand-ink)]">
+                      You are Unlocked for 2 Dinners,
+                      <span className="mt-2 block">Day 2 &amp; Day 4</span>
                     </div>
                   </div>
                 </div>

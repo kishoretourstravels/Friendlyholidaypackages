@@ -63,7 +63,7 @@ export default function Footer() {
             <div className="text-lg font-semibold">Address:</div>
             <span className="-mt-1">
               Plot No 3&amp;4, Shop No 1, Road No 5, Prashanthi Hills, Pragathi Nagar, Nizampet,
-              Medchal-Malkajgiri, Rangareddy, Telangana 500090
+              Medchal-Malkajgiri, Telangana 500090
             </span>
           </div>
         </div>

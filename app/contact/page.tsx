@@ -175,7 +175,7 @@ export default function ContactPage() {
             <div className="text-sm font-semibold text-slate-600">Address:</div>
             <div className="text-sm text-slate-600">
               Plot No 3&amp;4, Shop No 1, Road No 5, Prashanthi Hills, Pragathi Nagar,
-              Nizampet, Medchal-Malkajgiri, Rangareddy, Telangana 500090
+              Nizampet, Medchal-Malkajgiri, Telangana 500090
             </div>
           </div>
 

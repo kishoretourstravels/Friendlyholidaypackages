@@ -242,7 +242,7 @@ export default async function PackageDetailsPage({ params }: Props) {
           <div className="mx-auto max-w-6xl px-4 pb-16">
             <div className="grid gap-6 md:grid-cols-3">
               <div className="relative overflow-hidden rounded-2xl border border-white/70 bg-white/90 p-6 shadow-sm">
-                <div className="pointer-events-none absolute inset-0 flex items-center justify-center opacity-15">
+                <div className="pointer-events-none absolute inset-0 flex items-center justify-center opacity-[0.07]">
                   <svg
                     aria-hidden="true"
                     viewBox="0 0 120 120"
@@ -269,7 +269,7 @@ export default async function PackageDetailsPage({ params }: Props) {
               </div>
 
               <div className="relative overflow-hidden rounded-2xl border border-white/70 bg-white/90 p-6 shadow-sm">
-                <div className="pointer-events-none absolute inset-0 flex items-center justify-center opacity-15">
+                <div className="pointer-events-none absolute inset-0 flex items-center justify-center opacity-[0.07]">
                   <svg
                     aria-hidden="true"
                     viewBox="0 0 120 120"
@@ -295,7 +295,7 @@ export default async function PackageDetailsPage({ params }: Props) {
               </div>
 
               <div className="relative overflow-hidden rounded-2xl border border-white/70 bg-white/90 p-6 shadow-sm">
-                <div className="pointer-events-none absolute inset-0 flex items-center justify-center opacity-15">
+                <div className="pointer-events-none absolute inset-0 flex items-center justify-center opacity-[0.07]">
                   <svg
                     aria-hidden="true"
                     viewBox="0 0 120 120"
@@ -306,9 +306,9 @@ export default async function PackageDetailsPage({ params }: Props) {
                     strokeLinejoin="round"
                   >
                     <circle cx="60" cy="60" r="42" />
-                    <path d="M60 18L96.4 81H23.6z" />
-                    <line x1="60" y1="44" x2="60" y2="70" strokeLinecap="round" />
-                    <circle cx="60" cy="78" r="4" fill="currentColor" stroke="none" />
+                    <path d="M60 24L88 78H32z" />
+                    <line x1="60" y1="43" x2="60" y2="56" strokeLinecap="round" strokeWidth="6" />
+                    <circle cx="60" cy="68" r="3" fill="currentColor" stroke="none" />
                   </svg>
                 </div>
                 <h3 className="text-lg font-bold text-[color:var(--brand-ink)]">Things To Carry</h3>
