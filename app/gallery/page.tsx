@@ -6,7 +6,7 @@ export default function GalleryPage() {
           Travel Gallery
         </h1>
         <p className="mt-2 text-slate-700">
-          Next step lo images grid + categories add chestham.
+          We will fill our Gallery with your Memories.
         </p>
 
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

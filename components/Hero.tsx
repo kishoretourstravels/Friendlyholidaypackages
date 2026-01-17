@@ -6,6 +6,85 @@ import { useState } from "react";
 export default function Hero() {
   const [offerOpen, setOfferOpen] = useState(false);
   const [showReward, setShowReward] = useState(false);
+  const [formValues, setFormValues] = useState({
+    name: "",
+    email: "",
+    mobile: "",
+    city: "",
+  });
+  const [formErrors, setFormErrors] = useState<{
+    name?: string;
+    email?: string;
+    mobile?: string;
+    city?: string;
+  }>({});
+
+  const updateField =
+    (field: keyof typeof formValues) => (event: React.ChangeEvent<HTMLInputElement>) => {
+      const value = event.target.value;
+      setFormValues((prev) => ({ ...prev, [field]: value }));
+      if (formErrors[field as keyof typeof formErrors]) {
+        setFormErrors((prev) => ({ ...prev, [field]: undefined }));
+      }
+    };
+
+  const validateOfferForm = () => {
+    const nextErrors: {
+      name?: string;
+      email?: string;
+      mobile?: string;
+      city?: string;
+    } = {};
+    const name = formValues.name.trim();
+    const email = formValues.email.trim();
+    const mobile = formValues.mobile.trim();
+    const city = formValues.city.trim();
+
+    if (!name) {
+      nextErrors.name = "Name is required.";
+    }
+    if (!email) {
+      nextErrors.email = "Email is required.";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      nextErrors.email = "Enter a valid email.";
+    }
+    if (!mobile) {
+      nextErrors.mobile = "Mobile number is required.";
+    } else if (!/^\d{10,}$/.test(mobile.replace(/\s+/g, ""))) {
+      nextErrors.mobile = "Enter a valid mobile number.";
+    }
+    if (!city) {
+      nextErrors.city = "City with postcode is required.";
+    }
+
+    setFormErrors(nextErrors);
+    return Object.keys(nextErrors).length === 0;
+  };
+
+  const sheetEndpoint =
+    "https://script.google.com/macros/s/AKfycbx7WQ1E4bECMudyF9llP1U6BqgWbhcU11_3eL8BLtUIImdgCZpflapKB9PXRK1H_vOW/exec";
+
+  const submitOfferToSheet = async () => {
+    const payload = {
+      name: formValues.name.trim(),
+      email: formValues.email.trim(),
+      mobile: formValues.mobile.trim(),
+      city: formValues.city.trim(),
+    };
+
+    try {
+      await fetch(sheetEndpoint, {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "text/plain;charset=utf-8",
+        },
+        body: JSON.stringify(payload),
+      });
+    } catch (error) {
+      console.error("Failed to send eligibility lead.", error);
+    }
+  };
 
   return (
     <section className="relative overflow-hidden">
@@ -99,6 +178,13 @@ export default function Hero() {
               onClick={() => {
                 setOfferOpen(false);
                 setShowReward(false);
+                setFormErrors({});
+                setFormValues({
+                  name: "",
+                  email: "",
+                  mobile: "",
+                  city: "",
+                });
               }}
               aria-label="Close offer form"
             >
@@ -118,9 +204,6 @@ export default function Hero() {
                 <div className="text-xs font-semibold uppercase tracking-[0.3em] text-white/80">
                   Thailand special offer
                 </div>
-                <div className="mt-3 text-2xl font-extrabold">
-                  Get Upto 50% Discount on Thailand package
-                </div>
               </div>
             )}
 
@@ -132,7 +215,13 @@ export default function Hero() {
                     <input
                       className="mt-2 w-full rounded-xl border px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-[color:var(--brand-ocean)]"
                       placeholder="Enter your name"
+                      value={formValues.name}
+                      onChange={updateField("name")}
+                      aria-invalid={Boolean(formErrors.name)}
                     />
+                    {formErrors.name && (
+                      <p className="mt-1 text-xs text-red-600">{formErrors.name}</p>
+                    )}
                   </div>
                   <div>
                     <label className="text-sm font-semibold text-slate-700">Email</label>
@@ -140,14 +229,26 @@ export default function Hero() {
                       type="email"
                       className="mt-2 w-full rounded-xl border px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-[color:var(--brand-ocean)]"
                       placeholder="Enter your email"
+                      value={formValues.email}
+                      onChange={updateField("email")}
+                      aria-invalid={Boolean(formErrors.email)}
                     />
+                    {formErrors.email && (
+                      <p className="mt-1 text-xs text-red-600">{formErrors.email}</p>
+                    )}
                   </div>
                   <div>
                     <label className="text-sm font-semibold text-slate-700">Mobile No</label>
                     <input
                       className="mt-2 w-full rounded-xl border px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-[color:var(--brand-ocean)]"
                       placeholder="Enter your mobile number"
+                      value={formValues.mobile}
+                      onChange={updateField("mobile")}
+                      aria-invalid={Boolean(formErrors.mobile)}
                     />
+                    {formErrors.mobile && (
+                      <p className="mt-1 text-xs text-red-600">{formErrors.mobile}</p>
+                    )}
                   </div>
                   <div>
                     <label className="text-sm font-semibold text-slate-700">
@@ -156,11 +257,22 @@ export default function Hero() {
                     <input
                       className="mt-2 w-full rounded-xl border px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-[color:var(--brand-ocean)]"
                       placeholder="Hyderabad 500090"
+                      value={formValues.city}
+                      onChange={updateField("city")}
+                      aria-invalid={Boolean(formErrors.city)}
                     />
+                    {formErrors.city && (
+                      <p className="mt-1 text-xs text-red-600">{formErrors.city}</p>
+                    )}
                   </div>
                   <button
                     type="button"
-                    onClick={() => setShowReward(true)}
+                    onClick={() => {
+                      if (validateOfferForm()) {
+                        void submitOfferToSheet();
+                        setShowReward(true);
+                      }
+                    }}
                     className="w-full rounded-full bg-[color:var(--brand-ocean)] px-5 py-3 text-sm font-semibold text-white hover:bg-[#0c4c66]"
                   >
                     Check Your Eligibility
